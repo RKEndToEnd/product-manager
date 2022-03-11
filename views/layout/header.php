@@ -50,7 +50,7 @@ if (is_user_login())
     <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.php">Magazyn</a>
+        <a class="navbar-brand ps-3" href="../index.php">Magazyn</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
@@ -74,6 +74,7 @@ if (is_user_login())
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+                        <a class="nav-link" href="product-categories.php">Kategorie produktów</a>
                         <hr class="divider" />
                         <a class="nav-link" href="logout.php">Wyloguj się</a>
                     </div>
