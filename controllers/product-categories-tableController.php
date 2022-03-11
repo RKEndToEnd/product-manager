@@ -10,20 +10,15 @@ if ($statement->rowCount() > 0)
         }else{
             $category_status = '<div class="badge bg-danger">Niekatywna</div>';
         }
-        echo'
-                            <tr>
-                                <td>'.$row["category_name"].'</td>
-                                <td>'.$category_status.'</td>
-                                <td>'.$row["created_at"].'</td>
-                                <td>'.$row["updated_at"].'</td>
-                                <td></td>
-                            </tr>
-                            ';
+        echo'   <tr>
+                    <td>'.$row["category_name"].'</td>
+                    <td>'.$category_status.'</td>
+                    <td>'.$row["created_at"].'</td>
+                    <td>'.$row["updated_at"].'</td>
+                    <td></td>
+                </tr>
+        ';
     }
 }else{
-    echo'
-                        <tr>
-                            <td colspan="4" class="text-center">Brak danych w tabeli</td>
-                        </tr>
-                        ';
+    echo'<tr><td colspan="4" class="text-center">Brak danych w tabeli</td></tr>';
 }

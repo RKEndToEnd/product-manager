@@ -12,3 +12,8 @@ function is_user_login()
     }
     return false;
 }
+function timestamp()
+{
+    date_default_timezone_set('Europe/Warsaw');
+    return date("Y-m-d H:i:s",STRTOTIME(date('h:i:sa')));
+}

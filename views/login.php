@@ -38,7 +38,6 @@ include "layout/header.php";
             </div>
         </div>
     </div>
-
 </div>
 
 <?php
