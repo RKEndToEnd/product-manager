@@ -15,7 +15,7 @@ if ($statement->rowCount() > 0)
                     <td>'.$category_status.'</td>
                     <td>'.$row["created_at"].'</td>
                     <td>'.$row["updated_at"].'</td>
-                    <td></td>
+                    <td><a href="product-categories.php?action=edit&code='.convert_data($row["category_id"]).'" class="btn btn-sm btn-outline-warning" title="Edycja kategorii"><i class="fas fa-edit"></i></a></td>
                 </tr>
         ';
     }
