@@ -74,6 +74,7 @@ if (is_user_login())
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+                        <a class="nav-link" href="products.php">Produkty</a>
                         <a class="nav-link" href="product-categories.php">Kategorie produktów</a>
                         <hr class="divider" />
                         <a class="nav-link" href="logout.php">Wyloguj się</a>
