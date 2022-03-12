@@ -4,6 +4,7 @@ include "../controllers/function.php";
 include "../controllers/product-categoriesController.php";
 include "../controllers/product-categories-createController.php";
 include "../controllers/product-categories-editController.php";
+include "../controllers/product-categories-deleteController.php";
 include "layout/header.php";
 ?>
     <div class="container-fluid px-4" xmlns="http://www.w3.org/1999/html">
@@ -46,7 +47,6 @@ include "layout/header.php";
             else if($_GET["action"] == 'edit')
             {
                 $category_id = convert_data($_GET["code"],'decrypt');
-
                 if($category_id > 0)
                 {
                     $query = "
@@ -54,7 +54,6 @@ include "layout/header.php";
                         WHERE category_id = '$category_id'
                     ";
                     $category_result = $connect->query($query);
-
                     foreach($category_result as $category_row)
                     {
                     ?>
@@ -97,6 +96,55 @@ include "layout/header.php";
 				    }
 			    }
 		    }
+            else if($_GET["action"] == 'delete')
+            {
+                $category_id = convert_data($_GET["code"],'decrypt');
+                if($category_id > 0)
+                {
+                    $query = "
+                        SELECT * FROM product_manager.category 
+                        WHERE category_id = '$category_id'
+                    ";
+                    $category_result = $connect->query($query);
+                    foreach($category_result as $category_row)
+                    {
+                        ?>
+                        <ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+                            <li class="breadcrumb-item"><a href="dashboard.php">Panel</a></li>
+                            <li class="breadcrumb-item"><a href="product-categories.php">Kategorie produktów</a></li>
+                            <li class="breadcrumb-item active">Edycja kategorii produktów</li>
+                        </ol>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="col-md-4">
+                                <?php
+                                include "../helpers/error-msg.php";
+                                ?>
+                                <div class="card mb-4">
+                                    <div class="card-header"><i class="fas fa-edit"></i> Edycja kategorii produktów</div>
+                                    <div class="card-body">
+                                        <form method="post">
+                                            <div class="mb-3">
+                                                <label class="form-label">Nazwa kategorii</label>
+                                                <input type="text" name="category_name" id="category_name" class="form-control" value="<?php echo $category_row['category_name']; ?>" disabled/>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Nazwa kategorii</label>
+                                                <input type="text" name="category_name" id="category_name" class="form-control" value="<?php echo $category_row['category_status']; ?>" disabled/>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input type="hidden" name="category_id" value="<?php echo $_GET['code']; ?>" />
+                                                <a href="product-categories.php" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+                                                <input type="submit" name="destroyCatBtn" class="btn btn-sm btn-outline-primary" value="Usuń kategorię"/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
+                }
+            }
         }else{
         ?>
         <ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
