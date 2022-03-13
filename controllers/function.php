@@ -54,3 +54,58 @@ function select_product_category($connect)
 
     return $output;
 }
+function total_products($connect)
+{
+    $total = 0;
+    $query = "
+    SELECT COUNT(product_id) AS Total FROM product_manager.products
+    ";
+    $result = $connect->query($query);
+    foreach ($result as $row)
+    {
+        $total = $row["Total"];
+    }
+    return $total;
+}
+function total_avaliable_products($connect)
+{
+    $total = 0;
+    $query = "
+    SELECT COUNT(product_id) AS Total FROM product_manager.products
+    WHERE product_status = 'Dostępny'
+    ";
+    $result = $connect->query($query);
+    foreach ($result as $row)
+    {
+        $total = $row["Total"];
+    }
+    return $total;
+}
+function total_unavaliable_products($connect)
+{
+    $total = 0;
+    $query = "
+    SELECT COUNT(product_id) AS Total FROM product_manager.products
+    WHERE product_status = 'Niedostępny'
+    ";
+    $result = $connect->query($query);
+    foreach ($result as $row)
+    {
+        $total = $row["Total"];
+    }
+    return $total;
+}
+function total_product_categories($connect)
+{
+    $total = 0;
+    $query = "
+    SELECT COUNT(category_id) AS Total FROM product_manager.category
+    WHERE category_status = 'Aktywna'
+    ";
+    $result = $connect->query($query);
+    foreach ($result as $row)
+    {
+        $total = $row["Total"];
+    }
+    return $total;
+}
