@@ -1,49 +1,32 @@
 <?php
-if (isset($_POST["loginBtn"]))
-{
-    $formdata = array();
+$message = '';
+if(isset($_POST['loginBtn'])){
+    $email = trim($_POST['user_email']);
+    $password = trim($_POST['user_password']);
+
     if (empty($_POST["user_email"]))
     {
         $message .= '<li>Wpisz adres email.</li>';
-    }else{
-        if (!filter_var($_POST["user_email"],FILTER_VALIDATE_EMAIL))
-        {
-            $message .='<li>Nieprawidłowy adres email</li>';
-        }else{
-            $formdata['user_email'] = $_POST['user_email'];
-        }
     }
     if (empty($_POST['user_password']))
     {
         $message .= '<li>Wpisz hasło.</li>';
     }else{
-        $formdata['user_password'] = $_POST['user_password'];
-    }
-    if ($message == '')
-    {
-        $data = array(
-            ':user_email' => $formdata['user_email']
-        );
-        $query = "
-            SELECT * FROM product_manager.users 
-            WHERE user_email = :user_email
-        ";
-        $statement = $connect->prepare($query);
-        $statement->execute($data);
-        if ($statement->rowCount() > 0)
+        $sth = $connect->prepare('SELECT * FROM product_manager.users WHERE user_email=:user_email');
+        $sth->bindValue(':user_email', $email, PDO::PARAM_STR);
+        $sth->execute();
+        $user = $sth->fetch(PDO::FETCH_ASSOC);
+        if ($user)
         {
-            foreach ($statement->fetchAll() as $row)
+            if (password_verify($password, $user['user_password'])) {
+                $_SESSION['user_id'] = $user['user_id'];
+                header('location:dashboard.php');
+            }else
             {
-                if ($row['user_password'] == $formdata['user_password'])
-                {
-                    $_SESSION['user_id'] = $row['user_id'];
-                    header('location:dashboard.php');
-                }else{
-                    $message = '<li>Nieprawidłowe hasło.</li>';
-                }
+                $message .= '<li>Nieprawidłowe haslo</li>';
             }
-        }else{
-            $message = '<li>Adres email nie istnieje.</li>';
+        } else {
+            $message .= '<li>Nie znaleziono użytkownika.</li>';
         }
     }
 }

@@ -95,7 +95,7 @@ if (is_user_login())
         <main>
             <div class="container py-4">
                 <header class="pb-3 mb-4 border-bottom">
-                    <a href="index.php" class="d-flex align-items-center text-dark text-decoration-none">
+                    <a href="../index.php" class="d-flex align-items-center text-dark text-decoration-none">
                         <span class="fs-4">System zarządzania produktami</span>
                     </a>
                 </header>

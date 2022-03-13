@@ -12,6 +12,7 @@ include "views/layout/header.php";
                 <p class="lead text-white-50 mb-4">Prosty system do zarządzania bazą produktów z uwzględnieniem ilości, ceny i kategorii.</p>
                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
                     <a class="btn btn-outline-primary px-4 me-sm-3" href="views/login.php">Zaloguj się</a>
+                    <a class="btn btn-outline-primary px-4 me-sm-3" href="views/register.php">Zrejestruj się</a>
                 </div>
             </div>
         </div>

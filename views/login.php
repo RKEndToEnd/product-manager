@@ -1,13 +1,8 @@
 <?php
 include "../models/db_connect.php";
 include "../controllers/function.php";
-
-$message = '';
-
 include "../controllers/loginController.php";
-
 include "layout/header.php";
-
 ?>
 
 <div class="d-flex align-items-center justify-content-center">
@@ -42,4 +37,3 @@ include "layout/header.php";
 
 <?php
 include "layout/footer.php";
-?>
