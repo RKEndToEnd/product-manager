@@ -4,10 +4,10 @@ include "../controllers/function.php";
 include "../controllers/productsController.php";
 include "../controllers/products-createController.php";
 include "../controllers/products-editController.php";
-
+include "../controllers/products-deleteController.php";
 include "layout/header.php";
 ?>
-    <div class="container-fluid px-4" xmlns="http://www.w3.org/1999/html">
+    <div class="container-fluid px-4">
         <h1 class="mt-4">Magazyn produktów</h1>
         <?php
         if (isset($_GET["action"]))
@@ -59,7 +59,7 @@ include "layout/header.php";
                         </div>
                     </div>
                 </div>
-            </div>=
+            </div>
         <?php
         }
             else if ($_GET["action"] == 'edit'){
@@ -126,6 +126,63 @@ include "layout/header.php";
                         </div>
                     </div>
                     <?php
+                }
+            }
+            else if($_GET["action"] == 'delete')
+            {
+                $product_id = convert_data($_GET["code"],'decrypt');
+                if($product_id > 0)
+                {
+                    $query = "
+                        SELECT * FROM product_manager.products 
+                        WHERE product_id = '$product_id'
+                    ";
+                    $product_result = $connect->query($query);
+                    foreach($product_result as $product_row)
+                    {
+                        ?>
+                        <ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
+                            <li class="breadcrumb-item"><a href="dashboard.php">Panel</a></li>
+                            <li class="breadcrumb-item"><a href="products.php">Produkty</a></li>
+                            <li class="breadcrumb-item active">Usuwanie produktów</li>
+                        </ol>
+                        <div class="d-flex align-items-center justify-content-center">
+                            <div class="col-md-4">
+                                <?php
+                                include "../helpers/error-msg.php";
+                                ?>
+                                <div class="card mb-4">
+                                    <div class="card-header"><i class="fas fa-trash"></i> Usuwanie produktu</div>
+                                    <div class="card-body">
+                                        <form method="post">
+                                            <div class="mb-3">
+                                                <label class="form-label">Nazwa produktu</label>
+                                                <input type="text" name="product_name" id="product_name" class="form-control" value="<?php echo $product_row['product_name']; ?>" disabled/>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Kategoria produktu</label>
+                                                <input type="text" name="product_category" id="product_category" class="form-control" value="<?php echo $product_row['product_category']; ?>" disabled/>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Opis produktu</label>
+                                                <input type="text" name="product_description" id="product_description" class="form-control" value="<?php echo $product_row['product_description']; ?>" disabled/>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="form-label">Status produktu</label>
+                                                <input type="text" name="product_status" id="product_status" class="form-control" value="<?php echo $product_row['product_status']; ?>" disabled/>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <input type="hidden" name="category_id" value="<?php echo $_GET['code']; ?>" />
+                                                <a href="products.php" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
+                                                <input type="submit" name="destroyProductBtn" class="btn btn-sm btn-outline-primary" value="Usuń produkt"/>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+                    }
                 }
             }
     }else{

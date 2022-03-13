@@ -18,7 +18,9 @@ if ($statement->rowCount() > 0)
                                         <td>'.$row["created_at"].'</td>
                                         <td>'.$row["updated_at"].'</td>
                                         <td>   
-                                            <a href="products.php?action=edit&code='.convert_data($row["product_id"]).'" class="btn btn-sm btn-outline-warning" title="Edycja produktu"><i class="fas fa-edit"></i></a>                                     
+                                            <a href="products.php?action=edit&code='.convert_data($row["product_id"]).'" class="btn btn-sm btn-outline-warning" title="Edycja produktu"><i class="fas fa-edit"></i></a>
+                                            <a href="products.php?action=delete&code='.convert_data($row["product_id"]).'" class="btn btn-sm btn-outline-danger" title="Usuwanie produktu"><i class="fas fa-trash-alt"></i></a>
+                                     
                                         </td>
                                     </tr>
                             ';

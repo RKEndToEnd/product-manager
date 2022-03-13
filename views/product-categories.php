@@ -75,9 +75,9 @@ include "layout/header.php";
                                                 <label class="form-label">Nazwa kategorii</label>
                                                 <input type="text" name="category_name" id="category_name" class="form-control" value="<?php echo $category_row['category_name']; ?>" />
                                             </div><div class="mb-3">
-                                                <label class="form-label">Nazwa kategorii</label>
+                                                <label class="form-label">Status kategorii</label>
                                                 <select type="text" name="category_status" id="category_status" class="form-control" value="<?php echo $category_row['category_status']; ?>" />
-                                                    <option selected><?php echo $category_row['category_status']; ?></option>
+                                                    <option value="">Wybierz status kategorii</option>
                                                     <option value="Aktywna">Aktywna</option>
                                                     <option value="Nieaktywna">Nieaktywna</option>
                                                 </select>
@@ -88,6 +88,9 @@ include "layout/header.php";
                                                 <input type="submit" name="updateCatBtn" class="btn btn-sm btn-outline-primary" value="Zaktualizuj dane kategorii"/>
                                             </div>
                                         </form>
+                                        <script>
+                                            document.getElementById('category_status').value = "<?php echo $category_row['category_status'];  ?>";
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +115,7 @@ include "layout/header.php";
                         <ol class="breadcrumb mt-4 mb-4 bg-light p-2 border">
                             <li class="breadcrumb-item"><a href="dashboard.php">Panel</a></li>
                             <li class="breadcrumb-item"><a href="product-categories.php">Kategorie produktów</a></li>
-                            <li class="breadcrumb-item active">Edycja kategorii produktów</li>
+                            <li class="breadcrumb-item active">Usuwanie kategorii produktów</li>
                         </ol>
                         <div class="d-flex align-items-center justify-content-center">
                             <div class="col-md-4">
@@ -120,7 +123,7 @@ include "layout/header.php";
                                 include "../helpers/error-msg.php";
                                 ?>
                                 <div class="card mb-4">
-                                    <div class="card-header"><i class="fas fa-edit"></i> Edycja kategorii produktów</div>
+                                    <div class="card-header"><i class="fas fa-trash"></i> Usuwanie kategorii produktów</div>
                                     <div class="card-body">
                                         <form method="post">
                                             <div class="mb-3">
@@ -128,8 +131,8 @@ include "layout/header.php";
                                                 <input type="text" name="category_name" id="category_name" class="form-control" value="<?php echo $category_row['category_name']; ?>" disabled/>
                                             </div>
                                             <div class="mb-3">
-                                                <label class="form-label">Nazwa kategorii</label>
-                                                <input type="text" name="category_name" id="category_name" class="form-control" value="<?php echo $category_row['category_status']; ?>" disabled/>
+                                                <label class="form-label">Status kategorii</label>
+                                                <input type="text" name="category_status" id="category_status" class="form-control" value="<?php echo $category_row['category_status']; ?>" disabled/>
                                             </div>
                                             <div class="modal-footer">
                                                 <input type="hidden" name="category_id" value="<?php echo $_GET['code']; ?>" />
