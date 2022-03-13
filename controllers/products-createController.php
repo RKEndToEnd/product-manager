@@ -35,12 +35,13 @@ if(isset($_POST["createProductBtn"]))
             ':product_name' => $formdata['product_name'],
             ':product_category' => $formdata['product_category'],
             ':product_description' => $formdata['product_description'],
-            ':product_status' => $formdata['product_status']
+            ':product_status' => $formdata['product_status'],
+            ':created_at' => timestamp($connect)
         );
         $query = "
         INSERT INTO product_manager.products
-        (product_name, product_category, product_description, product_status)
-        VALUES (:product_name, :product_category, :product_description, :product_status)
+        (product_name, product_category, product_description, product_status, created_at)
+        VALUES (:product_name, :product_category, :product_description, :product_status, :created_at)
         ";
         $statement = $connect->prepare($query);
         $statement->execute($data);
