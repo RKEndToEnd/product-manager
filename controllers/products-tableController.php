@@ -17,7 +17,8 @@ if ($statement->rowCount() > 0)
                                         <td>'.$product_status.'</td>
                                         <td>'.$row["created_at"].'</td>
                                         <td>'.$row["updated_at"].'</td>
-                                        <td>                                    
+                                        <td>   
+                                            <a href="products.php?action=edit&code='.convert_data($row["product_id"]).'" class="btn btn-sm btn-outline-warning" title="Edycja produktu"><i class="fas fa-edit"></i></a>                                     
                                         </td>
                                     </tr>
                             ';
