@@ -26,6 +26,7 @@ include "layout/header.php";
                         <input type="password" name="user_password" id="user_password" class="form-control" placeholder="Hasło"/>
                     </div>
                     <div class="modal-footer">
+                        <a href="register.php" type="button" class="btn btn-outline-success">Nie masz konta - zarejestruj się</a>
                         <a href="../index.php" type="button" class="btn btn-outline-secondary">Anuluj</a>
                         <input type="submit" name="loginBtn" class="btn btn-outline-primary" value="Zaloguj"/>
                     </div>

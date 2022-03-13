@@ -12,7 +12,10 @@ if(isset($_POST['loginBtn'])){
     {
         $message .= '<li>Wpisz hasło.</li>';
     }else{
-        $sth = $connect->prepare('SELECT * FROM product_manager.users WHERE user_email=:user_email');
+        $sth = $connect->prepare(
+            'SELECT * FROM product_manager.users 
+                    WHERE user_email=:user_email
+            ');
         $sth->bindValue(':user_email', $email, PDO::PARAM_STR);
         $sth->execute();
         $user = $sth->fetch(PDO::FETCH_ASSOC);
