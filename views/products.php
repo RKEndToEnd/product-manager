@@ -172,7 +172,7 @@ include "layout/header.php";
                                                 <input type="text" name="product_status" id="product_status" class="form-control" value="<?php echo $product_row['product_status']; ?>" disabled/>
                                             </div>
                                             <div class="modal-footer">
-                                                <input type="hidden" name="category_id" value="<?php echo $_GET['code']; ?>" />
+                                                <input type="hidden" name="product_id" value="<?php echo $_GET['code']; ?>" />
                                                 <a href="products.php" type="button" class="btn btn-sm btn-outline-secondary">Anuluj</a>
                                                 <input type="submit" name="destroyProductBtn" class="btn btn-sm btn-outline-primary" value="Usuń produkt"/>
                                             </div>

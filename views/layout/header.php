@@ -13,9 +13,9 @@
     <title>Magazyn produktów</title>
     <link rel="canonical" href="">
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo main_url(); ?>resources/css/simple-datatables-style.css" rel="stylesheet"/>
-    <link href="<?php echo main_url(); ?>resources/css/styles.css" rel="stylesheet"/>
-    <script src="<?php echo main_url(); ?>resources/js/font-awesome-5-all.min.js" crossorigin="anonymous"></script>
+    <link type="text/css" href="<?php echo main_url(); ?>resources/css/simple-datatables-style.css" rel="stylesheet"/>
+    <link type="text/css" href="<?php echo main_url(); ?>resources/css/styles.css" rel="stylesheet"/>
+    <script type="text/javascript" src="<?php echo main_url(); ?>resources/js/font-awesome-5-all.min.js" crossorigin="anonymous"></script>
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>-->
 
     <!-- Favicons -->

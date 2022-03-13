@@ -112,3 +112,4 @@ fabric.properties
 models
 
 /php.ini
+/.htaccess

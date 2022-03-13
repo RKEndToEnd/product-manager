@@ -1,7 +1,4 @@
 <?php
-$message = '';
-$error = '';
-
 if (isset($_POST["updateProductBtn"]))
 {
     $formdata = array();

@@ -3,9 +3,9 @@
                 <div class="mb-3"></div>
             </footer>
         </main>
-        <script src="<?php echo main_url(); ?>resources/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo main_url(); ?>resources/js/scripts.js"></script>
-        <script src="<?php echo main_url(); ?>resources/js/simple-datatables@latest.js" crossorigin="anonymous"></script>
-        <script src="<?php echo main_url(); ?>resources/js/datatables-simple-demo.js"></script>
+        <script type="text/javascript" src="<?php echo main_url(); ?>resources/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="<?php echo main_url(); ?>resources/js/scripts.js"></script>
+        <script type="text/javascript" src="<?php echo main_url(); ?>resources/js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="<?php echo main_url(); ?>resources/js/datatables-simple-demo.js"></script>
     </body>
 </html>
