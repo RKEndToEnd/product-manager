@@ -7,7 +7,7 @@ include "../controllers/product-categories-editController.php";
 include "../controllers/product-categories-deleteController.php";
 include "layout/header.php";
 ?>
-    <div class="container-fluid px-4" xmlns="http://www.w3.org/1999/html">
+    <div class="container-fluid px-4">
         <h1 class="mt-4">Kategorie produktów</h1>
         <?php
         if (isset($_GET['action']))

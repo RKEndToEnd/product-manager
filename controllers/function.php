@@ -35,3 +35,22 @@ function convert_data($string, $action = 'encrypt')
     }
     return $output;
 }
+function select_product_category($connect)
+{
+    $query = "
+	SELECT category_name FROM product_manager.category 
+	WHERE category_status = 'Aktywna' 
+	ORDER BY category_name ASC
+	";
+
+    $result = $connect->query($query);
+
+    $output = '<option value="">Wybierz kategorię produktu</option>';
+
+    foreach($result as $row)
+    {
+        $output .= '<option value="'.$row["category_name"].'">'.$row["category_name"].'</option>';
+    }
+
+    return $output;
+}
